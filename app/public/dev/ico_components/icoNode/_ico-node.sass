@@ -1,0 +1,42 @@
+ico-node
+	position: relative
+	margin-bottom: 10px
+	display: block
+	min-height: 21px
+
+	&::before
+		content: ""
+		display: block
+		position: absolute
+		top: 4px
+		left: -35px
+		width: 12px
+		height: 12px
+		border-radius: 7px
+		background-color: $text-color
+
+	&:focus, &:visited
+		outline: none
+
+	ico-node
+		left: 40px
+		margin:
+			top: 10px
+
+	&::after
+		content: ""
+		position: absolute
+		background-color: white
+		top: 8px
+		left: -21px
+		width: 4px
+		height: 4px
+		border-radius: 2px
+
+	&.is-folded
+
+		& > ico-node
+			display: none
+
+		&::before
+			background-color: black

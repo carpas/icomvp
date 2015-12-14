@@ -1,0 +1,23 @@
+{
+  "name": "ico",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.coffee"
+  },
+  "author": "Eduardo Nuzzi, Rafael Cordeiro",
+  "license": "ISC",
+  "devDependencies": {
+    "body-parser": "^1.14.1",
+    "connect-flash": "^0.1.1",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "jade": "^1.11.0",
+    "json-middleware": "^1.0.2",
+    "morgan": "^1.6.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  }
+}

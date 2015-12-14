@@ -1,0 +1,46 @@
+@import "../../../general/sass/base"
+
+//// Custom Elements
+@import "../../ico_components/loader/loader"
+@import "../../ico_components/fileManager/file-manager"
+@import "../../ico_components/icoNode/ico-node"
+@import "../../ico_components/icoEditor/ico-editor"
+////
+
+
+.ico-wrapper
+	+flex(column)
+	align-items: stretch
+	flex-grow: 1
+	height: 100%
+	box-shadow: 0 0 4px 0
+
+	.header
+		+flex(row, space-between)
+		width: 100%
+		height: $header-height
+		padding: 0 $horizontal-padding
+
+	.header-title
+		font:
+			size: 28px
+		text-align: center
+
+	.sync-buttons-wrapper
+
+		button
+			position: relative
+
+			&:hover
+
+				&::after
+					content: attr(data-sync-description)
+					position: absolute
+					top: 40px
+					right: 0
+					display: block
+
+		.download-button
+			margin:
+				left: 20px
+

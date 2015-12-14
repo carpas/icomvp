@@ -1,0 +1,44 @@
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+div, span, p, button, a, input
+  color: $text-color
+  font:
+    family: $font-family
+
+input
+  outline: none
+  padding: 20px
+  height: 50px
+  font:
+    size: 14px
+  transition: all .1s ease-in
+
+  &:hover, &:focus, &:visited
+    outline: none
+
+
+h1, h2, h3, h4, h5
+  font-weight: normal
+  display: inline-block
+
+div, button
+
+  &:focus, &:visited
+    outline: none
+
+.fa
+  font-size: 25px
+
+button
+  cursor: pointer
+  border: none
+  background-color: transparent
+  text-transform: uppercase
+
+body
+  height: 100vh
+  width: 100%
+  background-color: $bg-color

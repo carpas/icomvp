@@ -1,0 +1,36 @@
+extends ../../general/base
+
+title = "Login - ICO"
+
+block head
+    link(rel="styleSheet" href="/login/css/app.css")
+
+block content
+    .login-wrapper
+        p.header-title.
+            ICO
+
+        .form
+            p.title.
+                Faça o login para continuar
+            .input-wrapper
+                label(for="userInput").
+                    Usuário
+                input#userInput(type="text")
+
+            .input-wrapper
+                label(for="passwordInput").
+                    Senha
+                input#passwordInput(type="password")
+
+            .input-wrapper
+                button#submitButton.submit-button(type="button").
+                    Entrar
+
+            p.error-msg
+
+        .dummy-flex
+
+
+block body-scripts
+    script(src="/login/js/main.min.js")

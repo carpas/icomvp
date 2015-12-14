@@ -1,0 +1,52 @@
+extends ../../general/base
+
+title = "ICO"
+
+block head
+    link(rel="styleSheet" href="/index/css/app.css")
+    script(src="/index/js/main.min.js")
+
+
+block content
+    file-manager#file-manager
+        .header
+            h2.title.
+                Arquivos
+            button#add-file-button
+                i.fa.fa-plus
+        .content
+            - for file in files
+                .file-cell-wrapper(data-name="#{file.name}")
+                    .file-cell(data-name="#{file.name}" data-content="#{file.content}").
+                        #{file.name}
+                    button#delete-file-cell.delete-file-cell(data-file-to-delete="#{file.name}")
+                        i.fa.fa-trash
+
+    .ico-wrapper
+        .header
+            button(data-toggle="file-manager")
+                i.fa.fa-bars
+            h2.header-title.
+                Festival Emergência
+            .sync-buttons-wrapper
+                button.upload-button#upload-button(data-sync-description="Upload de dados para o servidor")
+                    i.fa.fa-cloud-upload.
+                button.download-button#download-button(data-sync-description="Download de dados do servidor")
+                    i.fa.fa-cloud-download
+        ico-editor(data-current-file="Programação")
+            ico-node.
+                Programação
+    .help-box
+
+
+block body-scripts
+
+    script(type="text/x-handlebars-template" id="file-cell-wrapper-template")
+        .file-cell-wrapper(data-name="{{name}}")
+            .file-cell(data-name="{{name}}" data-content="{{content}}").
+                {{name}}
+            button#delete-file-cell.delete-file-cell(data-file-to-delete="{{name}}")
+                i.fa.fa-trash
+        
+
+

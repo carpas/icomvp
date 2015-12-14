@@ -1,0 +1,17 @@
+.loader
+	position: absolute
+	height: 100%
+	width: 100%
+	z-index: 1000000000
+	opacity: 0
+	display: none
+	background:
+		color: black
+		image: url('/img/loading-icon.gif')
+		position: center
+		size: 1000px
+		repeat: no-repeat
+	transition: opacity .2s ease-in
+
+	&.is-active
+		opacity: 0.5
