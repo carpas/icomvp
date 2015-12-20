@@ -14,12 +14,15 @@ class FileRouter
 
 	@publishChangeFileEvent: (fileToShow) =>
 		if fileToShow.newFileName
-			changeFileEvent = window.pubsubEvents.changeFile
+			changeFileEvent = window.pubsubEvents.changeFileWithoutSaving
 			PubSub.publish changeFileEvent, fileToShow
 
 
 	@_getFileToShowInfo: =>
 		newFileName = window.location.hash?.split("#")[1]
-		newContent = $(".file-cell[data-name=#{newFileName}]")[0]?.dataset.content
+		newFileCell = $(".file-cell[data-name=#{newFileName}]")[0]
+		newContent = newFileCell?.dataset.content
+		newFileID = newFileCell?.dataset.id
 
-		{newFileName, newContent}
+		{newFileName, newContent, newFileID}
+

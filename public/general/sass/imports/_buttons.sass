@@ -9,3 +9,34 @@ button.submit-button
   &:hover
     background-color: $text-color
     color: $bg-color
+
+.header-buttons-wrapper
+
+  button
+    position: relative
+
+    &:hover
+
+      &::after
+        content: attr(data-button-description)
+        position: absolute
+        top: 40px
+        right: 0
+        display: block
+
+  .saving-button
+    margin-right: 30px
+
+    i.fa-refresh
+      opacity: 0
+      transition: opacity .1s ease-in
+      animation: rotate-loop 2s linear infinite
+
+    &.is-active
+
+      i.fa-refresh
+        opacity: 1
+
+  //.download-button
+  //  margin:
+  //    left: 20px

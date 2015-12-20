@@ -16,10 +16,10 @@ block content
                 i.fa.fa-plus
         .content
             - for file in files
-                .file-cell-wrapper(data-name="#{file.name}")
-                    .file-cell(data-name="#{file.name}" data-content="#{file.content}").
+                .file-cell-wrapper(data-id="#{file.id}")
+                    .file-cell(data-id="#{file.id}" data-name="#{file.name}" data-content="#{file.content}").
                         #{file.name}
-                    button#delete-file-cell.delete-file-cell(data-file-to-delete="#{file.name}")
+                    button#delete-file-cell.delete-file-cell(data-file-to-delete="#{file.id}")
                         i.fa.fa-trash
 
     .ico-wrapper
@@ -27,25 +27,30 @@ block content
             button(data-toggle="file-manager")
                 i.fa.fa-bars
             h2.header-title.
-                Festival Emergência
-            .sync-buttons-wrapper
-                button.upload-button#upload-button(data-sync-description="Upload de dados para o servidor")
-                    i.fa.fa-cloud-upload.
-                button.download-button#download-button(data-sync-description="Download de dados do servidor")
-                    i.fa.fa-cloud-download
-        ico-editor(data-current-file="Programação")
-            ico-node.
-                Programação
+                ICO
+            .header-buttons-wrapper
+                button.saving-button#saving-button
+                    i.fa.fa-refresh
+                button.logout-button#logout-button(data-button-description="Fazer Logout")
+                    a(href="/logout")
+                        i.fa.fa-sign-out
+                //button.upload-button#upload-button(data-sync-description="Upload de dados para o servidor")
+                //    i.fa.fa-cloud-upload
+                //button.download-button#download-button(data-sync-description="Download de dados do servidor")
+                //    i.fa.fa-cloud-download
+        ico-editor
+            ico-node
+
     .help-box
 
 
 block body-scripts
 
     script(type="text/x-handlebars-template" id="file-cell-wrapper-template")
-        .file-cell-wrapper(data-name="{{name}}")
-            .file-cell(data-name="{{name}}" data-content="{{content}}").
+        .file-cell-wrapper(data-id="{{id}}")
+            .file-cell(data-id="{{id}}" data-name="{{name}}" data-content="{{content}}").
                 {{name}}
-            button#delete-file-cell.delete-file-cell(data-file-to-delete="{{name}}")
+            button#delete-file-cell.delete-file-cell(data-file-to-delete="{{id}}")
                 i.fa.fa-trash
         
 

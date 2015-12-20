@@ -4457,7 +4457,7 @@
 		"useLibsass": false
 		},
 	"\/dev\/ico_components\/fileManager\/file-manager.coffee": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
@@ -4486,7 +4486,7 @@
 		"useLibsass": false
 		},
 	"\/dev\/ico_components\/icoEditor\/ico-editor.coffee": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
@@ -4515,7 +4515,7 @@
 		"useLibsass": false
 		},
 	"\/dev\/ico_components\/icoNode\/ico-node.coffee": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
@@ -4544,7 +4544,7 @@
 		"useLibsass": false
 		},
 	"\/dev\/ico_components\/loader\/loader.coffee": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
@@ -4557,7 +4557,7 @@
 		"syntaxCheckerStyle": 0
 		},
 	"\/dev\/index\/coffee\/app\/app.coffee": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
@@ -4570,7 +4570,7 @@
 		"syntaxCheckerStyle": 0
 		},
 	"\/dev\/index\/coffee\/app\/core\/file-router.coffee": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
@@ -4583,7 +4583,7 @@
 		"syntaxCheckerStyle": 0
 		},
 	"\/dev\/index\/coffee\/app\/core\/ico-data-service-layer.coffee": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
@@ -4596,7 +4596,7 @@
 		"syntaxCheckerStyle": 0
 		},
 	"\/dev\/index\/coffee\/app\/dom\/dataEvents.coffee": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
@@ -4609,7 +4609,7 @@
 		"syntaxCheckerStyle": 0
 		},
 	"\/dev\/index\/coffee\/app\/util\/constants.coffee": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
@@ -4622,12 +4622,12 @@
 		"syntaxCheckerStyle": 0
 		},
 	"\/dev\/index\/coffee\/main.coffee": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"fileType": 32,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/dev\/index\/coffee\/main.coffee",
-		"minifyOutput": 0,
+		"minifyOutput": 1,
 		"outputAbbreviatedPath": "\/dist\/index\/js\/main.min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
@@ -4662,7 +4662,7 @@
 		"useLibsass": false
 		},
 	"\/dev\/login\/coffee\/main.coffee": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"fileType": 32,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
@@ -4762,7 +4762,7 @@
 		"outputStyle": 0
 		},
 	"\/general\/coffee\/ajax.coffee": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"fileType": 32,
 		"ignore": 1,
 		"ignoreWasSetByUser": 1,
@@ -4815,6 +4815,22 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/general\/sass\/imports\/_override.sass",
 		"outputAbbreviatedPath": "\/general\/sass\/imports\/_override.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 0,
+		"useLibsass": false
+		},
+	"\/general\/sass\/imports\/util\/_animations.sass": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 2,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/general\/sass\/imports\/util\/_animations.sass",
+		"outputAbbreviatedPath": "\/general\/sass\/imports\/util\/_animations.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -4895,7 +4911,7 @@
 	"coffeeAutoOutputPathReplace1": "dev\/index\/coffee",
 	"coffeeAutoOutputPathReplace2": "dist\/index\/js",
 	"coffeeAutoOutputPathStyle": 3,
-	"coffeeCreateSourceMap": 0,
+	"coffeeCreateSourceMap": 1,
 	"coffeeLintFlags2": {
 		"arrow_spacing": {
 			"active": 0,

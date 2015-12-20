@@ -9,6 +9,30 @@ class ICODataServiceLayer
 		$(document).on 'click', '#download-button', @_importContent
 
 
+	@saveFile: (fileInfo) =>
+		new Promise (resolve, reject) =>
+			App.turnOnSaving()
+			url = "/parse/save"
+			Ajax.doPost url, fileInfo
+			.then (response) =>
+				App.turnOffSaving()
+				resolve response
+
+			.catch (error) =>
+				reject error
+
+
+	@deleteFile: (fileID) =>
+		new Promise (resolve, reject) =>
+			url = "parse/destroy"
+			Ajax.doPost url, {fileID}
+			.then =>
+				resolve fileID
+
+			.catch (error) =>
+				reject error
+
+
 	@_getLocalFilesContent: =>
 		localFilesContent = []
 
@@ -29,9 +53,9 @@ class ICODataServiceLayer
 
 
 	@_getNewContent: =>
-		#### FIXME: add real data from backend
-		#### 'content' is stored as a base64 string.
-		#### to convert it just run atob('#{content}')
+#### FIXME: add real data from backend
+#### 'content' is stored as a base64 string.
+#### to convert it just run atob('#{content}')
 		[
 			{
 				fileName: "Programação"

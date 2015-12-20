@@ -11,6 +11,8 @@ console.log "Loading ICO App in #{env} mode."
 global.App = {
 	app: express()
 
+	Parse: require 'parse/node'
+
 	port: process.env.PORT || 3000
 
 	#### FIXME: Use real user data
@@ -18,12 +20,6 @@ global.App = {
 		username: "123"
 		password: "123"
 	}
-
-	#### FIXME: Use real user data
-#	login: {
-#		username: "ico-2016"
-#		password: "ico@rafa2016"
-#	}
 
 	version: packageJSON.version
 
@@ -58,3 +54,7 @@ App.app.set 'view options', {pretty: env is 'development'}
 App.require('config/middleware')(App.app)
 App.require('config/login')(App.app, passport)
 App.require('config/routes')(App.app, passport)
+
+
+#### Parse initialization code
+App.require('config/storage/parseServiceLayer').init(App.Parse)

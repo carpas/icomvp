@@ -1,39 +1,43 @@
 file-manager
-	height: 100%
-	width: 0
-	padding: 0
-	opacity: 0
-	overflow: hidden
-	transition: all .2s ease-in
+  height: 100%
+  width: 0
+  padding: 0
+  opacity: 0
+  overflow: hidden
+  transition: all .2s ease-in
 
-	&.is-active
-		width: 300px
-		padding: 0 $horizontal-padding
-		opacity: 1
+  &.is-active
+    width: 300px
+    padding: 0 $horizontal-padding
+    opacity: 1
 
-	.header
-		+flex(row, space-between)
-		height: $header-height
-		line-height: 60px
-		border-bottom: 1px solid lightgray
+  .header
+    +flex(row, space-between)
+    height: $header-height
+    line-height: 60px
+    border-bottom: 1px solid lightgray
 
-	.content
-		padding: 5px 0
+  .content
+    padding: 5px 0
 
-	.file-cell-wrapper
-		+flex(row, space-between)
+  .file-cell-wrapper
+    +flex(row, space-between)
 
-	.file-cell
-		display: inline-block
-		flex-grow: 1
-		padding: 20px 0
-		cursor: pointer
-		transition: background-color .1s ease-in
+  .file-cell
+    max-width: 190px
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    display: inline-block
+    flex-grow: 1
+    padding: 20px 0
+    cursor: pointer
+    transition: background-color .1s ease-in
 
-		&:hover
-			background-color: darken($bg-color, 5%)
+    &:hover
+      background-color: darken($bg-color, 5%)
 
-	.delete-file-cell
-		display: inline-block
-		margin:
-			left: 10px
+  .delete-file-cell
+    display: inline-block
+    margin:
+      left: 10px

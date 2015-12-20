@@ -1,3 +1,17 @@
+@-webkit-keyframes rotate-loop {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+@keyframes rotate-loop {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
 * {
   margin: 0;
   padding: 0;
@@ -49,6 +63,25 @@ button.submit-button {
   button.submit-button:hover {
     background-color: #657b83;
     color: #fdf6e3; }
+
+.header-buttons-wrapper button {
+  position: relative; }
+  .header-buttons-wrapper button:hover::after {
+    content: attr(data-button-description);
+    position: absolute;
+    top: 40px;
+    right: 0;
+    display: block; }
+.header-buttons-wrapper .saving-button {
+  margin-right: 30px; }
+  .header-buttons-wrapper .saving-button i.fa-refresh {
+    opacity: 0;
+    -webkit-transition: opacity 0.1s ease-in;
+    transition: opacity 0.1s ease-in;
+    -webkit-animation: rotate-loop 2s linear infinite;
+            animation: rotate-loop 2s linear infinite; }
+  .header-buttons-wrapper .saving-button.is-active i.fa-refresh {
+    opacity: 1; }
 
 .main-wrapper {
   display: -webkit-box;
@@ -147,6 +180,10 @@ file-manager {
         -ms-flex-align: center;
             align-items: center; }
   file-manager .file-cell {
+    max-width: 190px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     display: inline-block;
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
@@ -256,13 +293,3 @@ ico-editor {
   .ico-wrapper .header-title {
     font-size: 28px;
     text-align: center; }
-  .ico-wrapper .sync-buttons-wrapper button {
-    position: relative; }
-    .ico-wrapper .sync-buttons-wrapper button:hover::after {
-      content: attr(data-sync-description);
-      position: absolute;
-      top: 40px;
-      right: 0;
-      display: block; }
-  .ico-wrapper .sync-buttons-wrapper .download-button {
-    margin-left: 20px; }

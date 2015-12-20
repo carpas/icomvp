@@ -1,82 +1,87 @@
 class IcoEditor
 
-  @icoEditorElement: 'ico-editor'
-  @dataContentAttr: 'content'
-  @dataCurrentFile: 'fileName'
+	@icoEditorElement: 'ico-editor'
+	@dataContentAttr: 'content'
+	@dataCurrentFile: 'fileName'
 
-  @IcoNode: IcoNode
-
-
-  @init: =>
-    @icoEditorDom = document.registerElement @icoEditorElement
-    changeFileEventWithoutSaving = window.pubsubEvents.changeFileWithoutSaving
-    changeFileEvent = window.pubsubEvents.changeFile
-    PubSub.subscribe changeFileEventWithoutSaving, (msg, data) =>
-      @_changeCurrentFile data
-
-    PubSub.subscribe changeFileEvent, (msg, data) =>
-      @_saveContent()
-      .then =>
-        @_changeCurrentFile data
-
-    @IcoNode.init()
-
-    setInterval @_saveContent, 5000
+	@IcoNode: IcoNode
 
 
-  @_changeCurrentFile: (data) =>
-    $icoEditor = $ @icoEditorElement
-    icoEditor = $icoEditor[0]
+	@init: =>
+		@icoEditorDom = document.registerElement @icoEditorElement
+		changeFileEventWithoutSaving = window.pubsubEvents.changeFileWithoutSaving
+		changeFileEvent = window.pubsubEvents.changeFile
+		PubSub.subscribe changeFileEventWithoutSaving, (msg, data) =>
+			@_changeCurrentFile data
 
-    {newContent, newFileName} = data
+		PubSub.subscribe changeFileEvent, (msg, data) =>
+			@_saveContent()
+			.then =>
+				@_changeCurrentFile data
 
-    newObjectContent = JSON.parse atob(newContent)
-    decodedChildTree = @_importFromObject newObjectContent
-    icoEditor.innerHTML = ""
-    icoEditor.appendChild(child) for child in decodedChildTree
-    icoEditor.dataset.currentFile = newFileName
+		@IcoNode.init()
 
-
-  @_saveContent: =>
-
-    new Promise (resolve, reject) =>
-      $icoEditor = $ @icoEditorElement
-      icoEditor = $icoEditor[0]
-
-      objectToSave = @_exportDomTreeToObject icoEditor
-      JSONToSave = JSON.stringify objectToSave
-      JSONToSaveBase64 = btoa JSONToSave
-
-      fileToSave = icoEditor.dataset.currentFile
-      $(".file-cell[data-name=#{fileToSave}]")[0].dataset?.content = JSONToSaveBase64
-      resolve()
+		setInterval @_saveContent, 5000
 
 
-  @_importFromObject: (object) =>
-    icoNodes = []
+	@_changeCurrentFile: (data) =>
+		$icoEditor = $ @icoEditorElement
+		icoEditor = $icoEditor[0]
 
-    for child in object
-      for key, value of child
-        newIcoNodeElement = new @IcoNode.icoNodeDom()
-        newIcoNodeElement.innerHTML = key
-        newChild = @_importFromObject(value)
-        newIcoNodeElement.classList = @IcoNode.hasIcoChildClass if newChild
-        newIcoNodeElement.appendChild(element) for element in newChild
-        icoNodes.push newIcoNodeElement
+		{newContent, newFileName, newFileID} = data
 
-    icoNodes
+		newObjectContent = JSON.parse atob(newContent)
+		decodedChildTree = @_importFromObject newObjectContent
+		icoEditor.innerHTML = ""
+		icoEditor.appendChild(child) for child in decodedChildTree
+		icoEditor.dataset.currentFile = newFileName
+		icoEditor.dataset.currentFileId = newFileID
 
 
-  @_exportDomTreeToObject: (parent) =>
-    currentTreeLayer = []
+	@_saveContent: =>
+		new Promise (resolve, reject) =>
 
-    for element in parent.childNodes
+			$icoEditor = $ @icoEditorElement
+			icoEditor = $icoEditor[0]
 
-      if element instanceof @IcoNode.icoNodeDom
-        childObject = @_exportDomTreeToObject element
-        elementText = element.innerText.split('\n')[0]
-        currentTreeLayer.push {"#{elementText}": childObject}
+			objectToSave = @_exportDomTreeToObject icoEditor
+			JSONToSave = JSON.stringify objectToSave
+			JSONToSaveBase64 = btoa JSONToSave
 
-    currentTreeLayer
+			fileToSave = icoEditor.dataset.currentFile
+			fileToSaveID = icoEditor.dataset.currentFileId
 
-    
+			if fileToSave and fileToSaveID
+				ICODataServiceLayer.saveFile {id: fileToSaveID, fileName: fileToSave, fileContent: JSONToSaveBase64}
+				$(".file-cell[data-name=#{fileToSave}]")[0].dataset?.content = JSONToSaveBase64
+
+			resolve()
+
+
+	@_importFromObject: (object) =>
+		icoNodes = []
+
+		for child in object
+			for key, value of child
+				newIcoNodeElement = new @IcoNode.icoNodeDom()
+				newIcoNodeElement.innerHTML = key
+				newChild = @_importFromObject(value)
+				newIcoNodeElement.classList = @IcoNode.hasIcoChildClass if newChild
+				newIcoNodeElement.appendChild(element) for element in newChild
+				icoNodes.push newIcoNodeElement
+
+		icoNodes
+
+
+	@_exportDomTreeToObject: (parent) =>
+		currentTreeLayer = []
+
+		for element in parent.childNodes
+
+			if element instanceof @IcoNode.icoNodeDom
+				childObject = @_exportDomTreeToObject element
+				elementText = element.innerText.split('\n')[0]
+				currentTreeLayer.push {"#{elementText}": childObject}
+
+		currentTreeLayer
+

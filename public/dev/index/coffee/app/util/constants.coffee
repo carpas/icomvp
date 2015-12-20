@@ -21,4 +21,9 @@ window.pubsubEvents = {
   changeFileWithoutSaving: "change-file-no-saving"
   addNewFile: 'add-new-file'
   importContent: "import-content"
+  parse: {
+    createFile: "parse-create-file"
+    saveFile: "parse-save-file"
+    deleteFile: "parse-delete-file"
+  }
 }

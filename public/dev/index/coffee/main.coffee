@@ -7,6 +7,10 @@
 # @codekit-prepend '../../../bower_components/handlebars/handlebars.js'
 ####
 
+#### General
+# @codekit-prepend '../../../general/coffee/ajax.coffee'
+####
+
 #### Pubsub
 # @codekit-prepend 'app/pubsub/icoPubsub.coffee'
 ####
