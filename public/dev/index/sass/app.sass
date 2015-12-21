@@ -9,19 +9,20 @@
 
 
 .ico-wrapper
-	+flex(column)
-	align-items: stretch
-	flex-grow: 1
-	height: 100%
-	box-shadow: 0 0 4px 0
+  +flex(column)
+  align-items: stretch
+  flex-grow: 1
+  height: 100%
+  box-shadow: 0 0 4px 0
 
-	.header
-		+flex(row, space-between)
-		width: 100%
-		height: $header-height
-		padding: 0 $horizontal-padding
+  .header
+    +flex(row, space-between)
+    z-index: 1000
+    width: 100%
+    height: $header-height
+    padding: 0 $horizontal-padding
 
-	.header-title
-		font:
-			size: 28px
-		text-align: center
+  .header-title
+    font:
+      size: 28px
+    text-align: center

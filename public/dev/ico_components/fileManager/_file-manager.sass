@@ -1,19 +1,30 @@
+$file-manager-width: 300px
+
 file-manager
   height: 100%
   width: 0
-  padding: 0
+  position: relative
+  padding:
+    top: $header-height
   opacity: 0
-  overflow: hidden
+  flex-shrink: 0
+  overflow: auto
   transition: all .2s ease-in
 
   &.is-active
-    width: 300px
-    padding: 0 $horizontal-padding
+    width: $file-manager-width
+    padding:
+      left: $horizontal-padding
+      right: $horizontal-padding
     opacity: 1
 
   .header
     +flex(row, space-between)
     height: $header-height
+    width: $file-manager-width - (2 * $horizontal-padding)
+    position: fixed
+    top: 0
+    background-color: $bg-color
     line-height: 60px
     border-bottom: 1px solid lightgray
 

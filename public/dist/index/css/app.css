@@ -129,14 +129,19 @@ button.submit-button {
 file-manager {
   height: 100%;
   width: 0;
-  padding: 0;
+  position: relative;
+  padding-top: 60px;
   opacity: 0;
-  overflow: hidden;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+  overflow: auto;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in; }
   file-manager.is-active {
     width: 300px;
-    padding: 0 40px;
+    padding-left: 40px;
+    padding-right: 40px;
     opacity: 1; }
   file-manager .header {
     display: -webkit-box;
@@ -157,6 +162,10 @@ file-manager {
         -ms-flex-align: center;
             align-items: center;
     height: 60px;
+    width: 220px;
+    position: fixed;
+    top: 0;
+    background-color: #fdf6e3;
     line-height: 60px;
     border-bottom: 1px solid lightgray; }
   file-manager .content {
@@ -287,6 +296,7 @@ ico-editor {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
+    z-index: 1000;
     width: 100%;
     height: 60px;
     padding: 0 40px; }
